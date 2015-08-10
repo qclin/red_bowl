@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @entry.photo %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @entry.tag %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @entry.user %>
+</p>
+
+<p>
+  <strong>Contest:</strong>
+  <%= @entry.contest %>
+</p>
+
+<%= link_to 'Edit', edit_entry_path(@entry) %> |
+<%= link_to 'Back', entries_path %>
