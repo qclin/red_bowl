@@ -5,20 +5,13 @@ class ContestsController < ApplicationController
   # GET /contests.json
   def index
     @contests = Contest.all
+    render json: @contests
   end
 
   # GET /contests/1
   # GET /contests/1.json
   def show
-  end
-
-  # GET /contests/new
-  def new
-    @contest = Contest.new
-  end
-
-  # GET /contests/1/edit
-  def edit
+    render json: @contest
   end
 
   # POST /contests
@@ -31,7 +24,6 @@ class ContestsController < ApplicationController
         format.html { redirect_to @contest, notice: 'Contest was successfully created.' }
         format.json { render :show, status: :created, location: @contest }
       else
-        format.html { render :new }
         format.json { render json: @contest.errors, status: :unprocessable_entity }
       end
     end
@@ -45,7 +37,6 @@ class ContestsController < ApplicationController
         format.html { redirect_to @contest, notice: 'Contest was successfully updated.' }
         format.json { render :show, status: :ok, location: @contest }
       else
-        format.html { render :edit }
         format.json { render json: @contest.errors, status: :unprocessable_entity }
       end
     end

@@ -5,11 +5,21 @@ class EntriesController < ApplicationController
   # GET /entries.json
   def index
     @entries = Entry.all
+    render json: @entries
   end
 
+  def show_user_entries
+    @user_entries = Entry.where(params[:user_id])
+  end
+
+  def show_contest_entries
+    @user_entries = Entry.where(params[:contest_id])
+  end
+  
   # GET /entries/1
   # GET /entries/1.json
   def show
+    render json: @entry
   end
 
   # GET /entries/new
@@ -19,6 +29,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/1/edit
   def edit
+    render json: @entry
   end
 
   # POST /entries
@@ -63,9 +74,9 @@ class EntriesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_entry
+    def set_entry 
       @entry = Entry.find(params[:id])
-    end
+    end 
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
