@@ -1,28 +1,38 @@
-angular.module('redBowl', ['ui.router','authInterceptor','main'])
-.config(['$routeProvider', '$httpProvider',function($stateProvider, $urlRouteProvider){
-  $httpProvider.interceptors.push('authInterceptor'); 
+angular.module('redBowl', ['ui.router','ngResource','templates'])
+.config(['$stateProvider','$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouteProvider, $httpProvider){
 
-  $routeProvider
-  .when('/', {
-    templateUrl: '/home.html'
+  $urlRouterProvider.otherwise('home');
+
+  $stateProvider
+  .state('home', {
+    url:'#/',
+    templateUrl: 'home/_home.html', 
+    controller:'homeCtrl'
   })
-  .when('/users', {
-    templateUrl:'/users.html'
+  .state('users', {
+    url:'/users',
+    templateUrl:'users/_users.html', 
+    controller:'allUsersCtrl'
   })
-  .when('/users/:user_id', {
-    templateUrl:'/user.html'
+  .state('users.detail', {
+    url: '/users/:user_id',
+    templateUrl:'users/_user.html', 
+    controller: 'oneUserCtrl'
   })
-  .when('/contests', {
-    templateUrl:'/contests.html'
+  .state('contests', {
+    url:'/contests',
+    templateUrl:'contests/_contests.html', 
+    controller: 'allContestsCtrl'
   })
-  .when('/contests/:contest_id', {
-    templateUrl:'/contest.html'
+  .state('contests.detail', {
+    url:'/contests/:contest_id',
+    templateUrl:'contests/_contest.html', 
+    controller: 'oneContestCtrl'
   })
-  .when('/entries/:entries_id', {
-    templateUrl:'/entry.html'
-  })
-  .otherwise({
-    redirectTo:'/'
-  })
+  .state('entries.detail', {
+    url:'/entries/:entries_id',
+    templateUrl:'entries/_entry.html', 
+    controller:'/entryCtrl'
+  }); 
 
 }]);
