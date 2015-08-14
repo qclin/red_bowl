@@ -6,8 +6,10 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body ng-app="redBowl">
+<body ng-app="redbowl">
     <ui-view></ui-view>
-  <h1> {{msg}}</h1>
+  <div ng-controller="test">
+    <h1> {{msg}}</h1>
+  </div>
 </body>
 </html>

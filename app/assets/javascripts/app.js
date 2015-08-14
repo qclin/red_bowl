@@ -1,11 +1,19 @@
-angular.module('redBowl', ['ui.router','ngResource','templates'])
-.config(['$stateProvider','$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouteProvider, $httpProvider){
+//= require angular
+//= require angular-ui-router
+//= require angular-rails-templates
+
+angular.module('redbowl', ['ui.router','templates','home'])
+ .controller('test', function($scope) {
+    $scope.msg = 'heya';
+  })
+
+.config(['$stateProvider','$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $httpProvider){
 
   $urlRouterProvider.otherwise('home');
 
   $stateProvider
   .state('home', {
-    url:'#/',
+    url:'/',
     templateUrl: 'home/_home.html', 
     controller:'homeCtrl'
   })
@@ -33,6 +41,7 @@ angular.module('redBowl', ['ui.router','ngResource','templates'])
     url:'/entries/:entries_id',
     templateUrl:'entries/_entry.html', 
     controller:'/entryCtrl'
-  }); 
+  });
+ 
 
 }]);
