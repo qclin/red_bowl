@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:show, :edit, :update]
 
+  root to: 'application#angular'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

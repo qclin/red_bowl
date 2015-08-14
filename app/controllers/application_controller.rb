@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
 
   #uncomment before_action when you start authenticating
   # before_action :authenticate 
+  def angular 
+    render 'layouts/application'
+  end 
 
   def setCurrentUserId(id)
     @currentUserId = id
@@ -32,6 +35,6 @@ class ApplicationController < ActionController::Base
       else 
         render json: {'authorized':'false'}, :status => 401
       end 
-
+    end 
 
 end
