@@ -2,19 +2,19 @@
 //= require angular-ui-router
 //= require angular-rails-templates
 
-angular.module('redbowl', ['ui.router','templates','home'])
+angular.module('redbowl', ['ui.router','templates'])
  .controller('test', function($scope) {
     $scope.msg = 'heya';
   })
 
 .config(['$stateProvider','$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $httpProvider){
 
-  $urlRouterProvider.otherwise('home');
+  $urlRouterProvider.otherwise('/');
 
   $stateProvider
   .state('home', {
     url:'/',
-    templateUrl: 'home/_home.html', 
+    templateUrl: '/assets/home/_home.html', 
     controller:'homeCtrl'
   })
   .state('users', {
