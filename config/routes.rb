@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :contests
 
   resources :users, only: [:index, :show, :create] do 

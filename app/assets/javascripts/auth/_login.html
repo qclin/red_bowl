@@ -1,0 +1,18 @@
+
+<!-- turn into a pop-up modal 
+ -->
+ <div class = "page-header">
+<h1> Log In</h1>
+</div>
+
+<form ng-submit="login()">
+
+  <div class= "input-group">
+    <input type="email" class = "form-control" placeholder ="email" ng-model="user.email">
+  </div>
+  <div class= "input-group">
+    <input type="password" class = "form-control" placeholder ="password" ng-model="user.password">
+  </div>
+  <input type="submit" class = "btn btn-default" value="Log In">
+
+</form>

@@ -1,6 +1,5 @@
 class EntriesController < ApplicationController
-  before_action :set_entry, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
   # GET /entries
   # GET /entries.json
   def index
@@ -19,6 +18,7 @@ class EntriesController < ApplicationController
   # GET /entries/1
   # GET /entries/1.json
   def show
+    @entry = Entry.find(params[:id])
     render json: @entry
   end
 
@@ -29,6 +29,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/1/edit
   def edit
+    @entry = Entry.find(params[:id])
     render json: @entry
   end
 
@@ -51,6 +52,8 @@ class EntriesController < ApplicationController
   # PATCH/PUT /entries/1
   # PATCH/PUT /entries/1.json
   def update
+    @entry = Entry.find(params[:id])
+
     respond_to do |format|
       if @entry.update(entry_params)
         format.html { redirect_to @entry, notice: 'Entry was successfully updated.' }
@@ -65,6 +68,7 @@ class EntriesController < ApplicationController
   # DELETE /entries/1
   # DELETE /entries/1.json
   def destroy
+    @entry = Entry.find(params[:id])
     @entry.destroy
     respond_to do |format|
       format.html { redirect_to entries_url, notice: 'Entry was successfully destroyed.' }
@@ -73,10 +77,6 @@ class EntriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_entry 
-      @entry = Entry.find(params[:id])
-    end 
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params

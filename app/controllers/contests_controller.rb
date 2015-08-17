@@ -1,5 +1,5 @@
 class ContestsController < ApplicationController
-  before_action :set_contest, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
 
   # GET /contests
   # GET /contests.json
@@ -11,6 +11,7 @@ class ContestsController < ApplicationController
   # GET /contests/1
   # GET /contests/1.json
   def show
+    @contest = Contest.find(params[:id])
     render json: @contest
   end
 
@@ -32,6 +33,7 @@ class ContestsController < ApplicationController
   # PATCH/PUT /contests/1
   # PATCH/PUT /contests/1.json
   def update
+    @contest = Contest.find(params[:id])
     respond_to do |format|
       if @contest.update(contest_params)
         format.html { redirect_to @contest, notice: 'Contest was successfully updated.' }
@@ -45,6 +47,7 @@ class ContestsController < ApplicationController
   # DELETE /contests/1
   # DELETE /contests/1.json
   def destroy
+    @contest = Contest.find(params[:id])
     @contest.destroy
     respond_to do |format|
       format.html { redirect_to contests_url, notice: 'Contest was successfully destroyed.' }
@@ -53,10 +56,6 @@ class ContestsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_contest
-      @contest = Contest.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contest_params

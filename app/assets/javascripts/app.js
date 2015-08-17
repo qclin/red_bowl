@@ -1,8 +1,4 @@
-//= require angular
-//= require angular-ui-router
-//= require angular-rails-templates
-
-angular.module('redbowl', ['ui.router','templates'])
+angular.module('redbowl', ['ui.router','templates', 'Devise'])
  .controller('test', function($scope) {
     $scope.msg = 'heya';
   })
@@ -14,8 +10,28 @@ angular.module('redbowl', ['ui.router','templates'])
   $stateProvider
   .state('home', {
     url:'/',
-    templateUrl: '/assets/home/_home.html', 
+    templateUrl: 'home/_home.html', 
     controller:'homeCtrl'
+  })
+  .state('login', {
+    url:'/login', 
+    templateUrl:'auth/_login.html', 
+    controller:'AuthCtrl', 
+    onEnter: ['$state', 'Auth', function($state, Auth){
+      Auth.currentUser().then(function(){
+        $state.go('home');
+      })
+    }]
+  })
+  .state('register', {
+    url: '/register', 
+    templateUrl: 'auth/_register.html', 
+    controller:'AuthCtrl', 
+    onEnter: ['$state', 'Auth', function($state, Auth){
+      Auth.currentUser().then(function(){
+        $state.go('home'); 
+      })
+    }]
   })
   .state('users', {
     url:'/users',
