@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {"users/sessions"}
+  devise_for :users, controllers: {sessions: "users/sessions"} 
+
   resources :contests
 
   resources :users, only: [:index, :show, :create] do 

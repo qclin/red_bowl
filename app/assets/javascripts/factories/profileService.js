@@ -1,13 +1,13 @@
 angular.module('redbowl')
-.factory('profileService', ['$http', '$q', '$rootScope', '$window', function($http, $q, $rootScope, $window){
+.factory('profileService', ['$http', '$q', '$rootScope', 'Auth', function($http, $q, $rootScope, Auth){
     
-  if($window.sessionStorage.token){
+  if(Auth._currentUser !== null){
     getProfile(); 
   }
 
   function getProfile(user_id){
     return $q(function(resolve, reject){
-      if (typeof user_id === 'undefined') user_id = $window.sessionStorage.user_id; 
+      if (typeof user_id === 'undefined') user_id = Auth._currentUser.id; 
       $http.get('/users/'+user_id).then(function(data){
         if (data.status !== 200){
           profile = "not found"
