@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actionmailer (4.2.3)
       actionpack (= 4.2.3)
@@ -118,6 +119,9 @@ GEM
     rails-api (0.4.0)
       actionpack (>= 3.2.11)
       railties (>= 3.2.11)
+    rails-assets-angular (1.4.4)
+    rails-assets-angular-devise (1.1.0)
+      rails-assets-angular (>= 1.2.0, < 2)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.6)
@@ -190,6 +194,7 @@ DEPENDENCIES
   pry
   rails (= 4.2.3)
   rails-api
+  rails-assets-angular-devise!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

@@ -23,6 +23,10 @@ gem 'angular-rails-templates'
 gem 'devise', '~>3.4.0'
 gem 'angular_rails_csrf'
 
+source "https://rails-assets.org" do
+  gem "rails-assets-angular-devise"
+end
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
