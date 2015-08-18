@@ -1,5 +1,5 @@
 angular.module('redbowl')
-.controller('AuthCtrl', ['$scope','$state','Auth', function($scope, $state, Auth){
+.controller('AuthCtrl', ['$scope','$state','Auth','$http', function($scope, $state, Auth, $http){
 
   $scope.login = function(){
     console.log("logIn clicked ");
