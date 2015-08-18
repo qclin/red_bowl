@@ -1,15 +1,9 @@
 angular.module('redbowl')
 .controller('AuthCtrl', ['$scope','$state','Auth', function($scope, $state, Auth){
-  
-  var config = {
-    headers: {
-      'X-HTTP-Method-Override':'POST'
-    }
-  }; 
 
   $scope.login = function(){
     console.log("logIn clicked ");
-    Auth.login($scope.user, config).then(function(response){
+    Auth.login($scope.user).then(function(response){
       console.log(response.data);
       $state.go('home');
     }, function(error){
