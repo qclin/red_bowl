@@ -6,26 +6,9 @@ angular.module('redbowl')
       'X-HTTP-Method-Override':'POST'
     }
   }; 
-  $scope.signedIn = Auth.isAuthenticated;
-  $scope.logout = Auth.logout;
-
-  Auth.currentUser().then(function (user){
-    $scope.user = user;
-  });
-
-  $scope.$on('devise:new-registration', function (e, user){
-    $scope.user = user;
-  });
-
-  $scope.$on('devise:login', function (e, user){
-    $scope.user = user;
-  });
-
-  $scope.$on('devise:logout', function (e, user){
-    $scope.user = {};
-  });
 
   $scope.login = function(){
+    console.log("logIn clicked ");
     Auth.login($scope.user, config).then(function(response){
       console.log(response.data);
       $state.go('home');
