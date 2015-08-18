@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {"users/sessions"}
   resources :contests
 
   resources :users, only: [:index, :show, :create] do 
@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-
-  resources :sessions, only: [:show, :edit, :update]
 
   root to: 'application#angular'
   # Example of regular route:

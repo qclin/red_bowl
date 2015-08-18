@@ -10,12 +10,12 @@ angular.module('redbowl', ['ui.router','templates', 'Devise'])
   $stateProvider
   .state('home', {
     url:'/',
-    templateUrl: 'home/_home.html', 
+    templateUrl: '/assets/home/_home.html', 
     controller:'homeCtrl'
   })
   .state('login', {
     url:'/login', 
-    templateUrl:'auth/_login.html', 
+    templateUrl:'/assets/auth/_login.html', 
     controller:'AuthCtrl', 
     onEnter: ['$state', 'Auth', function($state, Auth){
       Auth.currentUser().then(function(){
@@ -25,7 +25,7 @@ angular.module('redbowl', ['ui.router','templates', 'Devise'])
   })
   .state('register', {
     url: '/register', 
-    templateUrl: 'auth/_register.html', 
+    templateUrl: '/assets/auth/_register.html', 
     controller:'AuthCtrl', 
     onEnter: ['$state', 'Auth', function($state, Auth){
       Auth.currentUser().then(function(){
@@ -35,27 +35,27 @@ angular.module('redbowl', ['ui.router','templates', 'Devise'])
   })
   .state('users', {
     url:'/users',
-    templateUrl:'users/_users.html', 
+    templateUrl:'/assets/users/_users.html', 
     controller:'allUsersCtrl'
   })
   .state('users.detail', {
     url: '/users/:user_id',
-    templateUrl:'users/_user.html', 
+    templateUrl:'/assets/users/_user.html', 
     controller: 'oneUserCtrl'
   })
   .state('contests', {
     url:'/contests',
-    templateUrl:'contests/_contests.html', 
+    templateUrl:'/assets/contests/_contests.html', 
     controller: 'allContestsCtrl'
   })
   .state('contests.detail', {
     url:'/contests/:contest_id',
-    templateUrl:'contests/_contest.html', 
+    templateUrl:'/assets/contests/_contest.html', 
     controller: 'oneContestCtrl'
   })
   .state('entries.detail', {
     url:'/entries/:entries_id',
-    templateUrl:'entries/_entry.html', 
+    templateUrl:'/assets/entries/_entry.html', 
     controller:'/entryCtrl'
   });
  

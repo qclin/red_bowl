@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body ng-app="redbowl">
-  <div ng-include ="'nav/_nav.html'"></div>
+  <div ng-include src="'nav/_nav.html'"></div>
     <ui-view></ui-view>
   <div ng-controller="test">
     <h1> {{msg}}</h1>

@@ -36,7 +36,7 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
-    @entry = Entry.new(entry_params)
+    @entry = Entry.new(entry_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @entry.save
