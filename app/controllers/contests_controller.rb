@@ -1,5 +1,5 @@
 class ContestsController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :update]
 
   # GET /contests
   # GET /contests.json

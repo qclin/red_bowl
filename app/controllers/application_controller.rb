@@ -9,12 +9,15 @@ class ApplicationController < ActionController::Base
   def angular 
     render 'layouts/application'
   end 
-
+  
+  config.to_prepare do
+   DeviseController.respond_to :html, :json
+  end
 
   private 
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :username
   end 
-  
+
 end

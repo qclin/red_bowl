@@ -1,5 +1,5 @@
 angular.module('redbowl')
-  .factory('voteService', ['$q','$http','$rootScope','$window', function($q, $http, $rootScope, $window){
+  .factory('voteService', ['$q','$http','$rootScope','Auth', function($q, $http, $rootScope, Auth){
   var votes; 
 
   function getVotes(){
@@ -28,7 +28,7 @@ angular.module('redbowl')
     console.log('addVote: ', entry_id); 
     votes[entry_id] = true; 
     var newVote = {
-      user_id: $window.sessionStorage.user_id, 
+      user_id: Auth.currentUser().id, 
       entry_id: entry_id 
     }; 
     $http.post('/votes', newVote).success(function(result, status){

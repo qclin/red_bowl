@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :update]
   # GET /entries
   # GET /entries.json
   def index
