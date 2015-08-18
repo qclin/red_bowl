@@ -6,7 +6,6 @@ angular.module('redbowl', ['ui.router','templates', 'Devise'])
 
   // add CSRF token to all $http requests
   $httpProvider.defaults.headers.common['X-CSRF-Token'] = angular.element('meta[name=csrf-token]').attr('content');
-
   $stateProvider
   .state('home', {
     url:'/',

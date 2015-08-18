@@ -6,10 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery 
 
   before_action :configure_permitted_parameters, if: :devise_controller? 
-  config.to_prepare do
-   DeviseController.respond_to :html, :json
-  end
-
+  
 
   def angular 
     render 'layouts/application'
