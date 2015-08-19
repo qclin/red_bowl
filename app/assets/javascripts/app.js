@@ -42,6 +42,10 @@ angular.module('redbowl', ['ui.router','templates', 'Devise'])
   //   templateUrl:'/assets/users/_user.html', 
   //   controller: 'oneUserCtrl'
   // })
+  .state('feature', {
+    url:'/feature', 
+    templateUrl: '/assets/feature/_feature.html'
+  })
   .state('contests', {
     url:'/contests',
     templateUrl:'/assets/contests/_contests.html', 

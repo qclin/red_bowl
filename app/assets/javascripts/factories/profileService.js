@@ -1,6 +1,8 @@
 angular.module('redbowl')
 .factory('profileService', ['$http', '$q', '$rootScope', 'Auth', function($http, $q, $rootScope, Auth){
-    
+  
+  var profile; 
+
   if(Auth._currentUser !== null){
     getProfile(); 
   }
@@ -24,7 +26,7 @@ angular.module('redbowl')
   }
 
   function editProfile(profile){
-    $http.post('/profile/edi', profile).success(function(data, status, header, config){
+    $http.post('/profile/edit', profile).success(function(data, status, header, config){
       console.log('editProfile success ', data); 
     }).error(function(data, status, header, config){
       console.log('editProfile fails ', data.error); 

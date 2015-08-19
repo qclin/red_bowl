@@ -11,7 +11,7 @@ angular.module('redbowl')
       return $q(function(resolve, reject){
         $http.get('/votes/').success(function(data, status){
           votes = {}; 
-          if(statius > 200){
+          if(status > 200){
             console.log(data); 
           }else{
             data.forEach(function(e){ votes[e.entry_id] = true; });
