@@ -6,6 +6,7 @@ angular.module('redbowl')
   function getContest(contest_id){
     return $q(function(resolve, reject){
       //return one contest with all of the entries 
+      if (typeof contest_id === 'undefined') contest_id ="latest"; 
       $http.get('/contests/'+contest_id).then(function(data){
         if(data.status !== 200){
           contest = "not found"
@@ -59,9 +60,9 @@ angular.module('redbowl')
   }
 
   return{
-    getContest: getContest; 
-    editContest: editContest;
-    getAllContests: getAllContests; 
+    getContest: getContest,
+    editContest: editContest,
+    getAllContests: getAllContests
   }
 
 

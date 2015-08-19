@@ -4,7 +4,7 @@ angular.module('redbowl')
   $scope.login = function(){
     Auth.login($scope.user).then(function(response){
       console.log(response.data);
-      $state.go('feature');
+      $state.go('landing');
     }, function(error){
       console.log("Authentication failed "+ error); 
     }); 
@@ -13,7 +13,7 @@ angular.module('redbowl')
   $scope.register = function(){
     Auth.register($scope.user).then(function(response){
       console.log(response.data);
-      $state.go('feature');
+      $state.go('landing');
     }, function(error){
       console.log("Registeration failed "+error);
     }); 
