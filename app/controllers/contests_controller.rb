@@ -12,7 +12,8 @@ class ContestsController < ApplicationController
   # GET /contests/1.json
   def show
     @contest = Contest.find(params[:id])
-    render json: @contest
+    @entries = Entry.where({contest_id: params[:id]})
+    render json: {info: @contest, entries: @entries}
   end
 
   # POST /contests

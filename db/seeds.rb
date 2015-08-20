@@ -20,3 +20,7 @@ Contest.create([{category: 'kawaii desu', deadline: "Jan-15-2015"},
     {category: 'tuna melt', deadline: "Sep-15-2015"}
     ]); 
 
+
+Entry.create([
+
+  ])

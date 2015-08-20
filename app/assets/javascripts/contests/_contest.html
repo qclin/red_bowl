@@ -1,0 +1,12 @@
+<header>
+  one contest page 
+  <h1> {{ contest.category }} </h1>
+  <h3 ng-show = "passed"> from {{contest.deadline}} </h3>
+</header>
+  {{msg}}
+<section> 
+  <ul ng-repeat = "entry in entries track by $index">
+    <li><img src = "{{entry.photo}}"> 
+        <p>{{entry.tag}}</p></li>
+  </ul>
+</section>

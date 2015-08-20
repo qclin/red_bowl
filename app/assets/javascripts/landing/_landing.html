@@ -1,6 +1,18 @@
-<div class = "page-header">
+<header>
   <h1> after you've signed in</h1>
+</header>
 
-<h2> {{msg}}</h2>
+<section class = "feature_contest">
+  <h2> now featuring {{contest.category}} </h2>  Deadline for submision {{contest.deadline}} 
 
- 
+  <a ng-click = "newEntry()"> join contest </a> 
+</section>
+
+<section class ="other_contests">
+  <ul class = "contestList">
+  <li ng-repeat = "contest in contests track by $index" ui-sref ="contest({contest_id:contest.id})"> {{contest.category}}</li>
+  </ul>
+</section>
+
+
+

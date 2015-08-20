@@ -19,7 +19,7 @@ angular.module('redbowl')
           resolve(profile); 
         }
       }).catch(function(err){
-        console.log('profileService had trouble loading profile: ' + err.error); 
+        console.log('profileService had trouble loading profile: ', err.error); 
         reject(err);
       });
     });

@@ -1,8 +1,16 @@
 angular.module('redbowl')
-.controller('landingCtrl', ['$scope', '$state','contestService', 'profileService', function($scope, $state, contestService, profileService){
+.controller('landingCtrl', ['$scope', '$state','contestService', 'profileService', '$location', function($scope, $state, contestService, profileService, $location){
 
-  // $scope.contest = contestService.getContest(); 
-  // $scope.profile = profileService.getProfile(); 
 
   $scope.msg = "landed ~ woo !"
+
+  contestService.getAllContests().then(function(data){
+    $scope.contests = data; 
+  });
+
+  $scope.loadDetail = function(id) {
+    // $location.path is also okay, using $state.go for ui.router
+    $state.go('contests.detail', {contest_id: id});
+  }
+
 }]);
