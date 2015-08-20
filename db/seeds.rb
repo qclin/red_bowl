@@ -6,42 +6,49 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-
 ############# DB:SEED FIRST 
 
-User.destroy_all 
-Contest.destroy_all
+# User.destroy_all 
+# Contest.destroy_all
 
-21.times do 
-  User.create({username: Faker::Internet.user_name, email: Faker::Internet.email , password: Faker::Internet.password(8)})
-end 
+# admin = User.create({username:'admin', email: 'admin@gameofbowls.com', password: 'yoroshiku'}); 
 
-admin = User.create({username:'admin', email: 'admin@gameofbowls.com', password: 'yoroshiku'}); 
+# 21.times do 
+#   User.create({username: Faker::Internet.user_name, email: Faker::Internet.email , password: Faker::Internet.password(8)})
+# end 
 
-
-52.times do 
-  Contest.create({category: Faker::Lorem.sentence, deadline: Faker::Date.backward(365)})
-end 
+# 52.times do 
+#   Contest.create({category: Faker::Lorem.sentence, deadline: Faker::Date.backward(365)})
+# end 
 
 ############# DB:SEED SECOND <<<< now that user table is filled 
 
-Entry.destroy_all
+@Users = User.all()
+User_ids = []
+@Users.each do |x|
+  User_ids << x.id
+end
 
+@Contests = Contest.all()
+Contest_ids = []
+@Contests.each do |x|
+  Contest_ids << x.id
+end  
+
+
+
+Entry.destroy_all
 10.times do 
   # one request is 20 post let's make 200 
   get_puppies = HTTParty.get("https://api.instagram.com/v1/tags/dogs/media/recent?client_id="+ENV["INSTAGRAM_API_KEY"])
-
-  
   get_puppies["data"].each_with_index do |x,i| 
     Entry.create({
       photo: x["images"]["low_resolution"]["url"], 
       tag: x["tags"], 
-      user_id: i+1, 
-      contest_id: rand(52)+1
+      user_id: User_ids[i % User_ids.length], 
+      contest_id: rand(Contest_ids[-1] - Contest_ids[0]) + Contest_ids[0]
     })
   end 
-
 end 
 
 #############
