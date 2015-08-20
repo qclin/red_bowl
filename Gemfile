@@ -22,7 +22,8 @@ gem 'json'
 gem 'angular-rails-templates'
 gem 'devise', '~>3.4.0'
 gem 'angular_rails_csrf'
-
+gem 'faker'
+gem 'figaro'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
