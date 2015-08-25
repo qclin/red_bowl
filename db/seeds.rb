@@ -38,9 +38,11 @@ end
 
 
 Entry.destroy_all
-10.times do 
+
+tags = ["dog", "puppy", "puppies","dogs", "instadogs"]
   # one request is 20 post let's make 200 
-  get_puppies = HTTParty.get("https://api.instagram.com/v1/tags/dogs/media/recent?client_id="+ENV["INSTAGRAM_API_KEY"])
+tags.each do |tag|
+  get_puppies = HTTParty.get("https://api.instagram.com/v1/tags/"+tag+"/media/recent?client_id="+ENV["INSTAGRAM_API_KEY"]+"&count=33")
   get_puppies["data"].each_with_index do |x,i| 
     Entry.create({
       photo: x["images"]["low_resolution"]["url"], 

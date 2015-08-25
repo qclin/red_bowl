@@ -5,8 +5,11 @@
 </header>
   {{msg}}
 <section> 
+  <a ng-click = "newEntry()"> join contest </a> 
   <ul ng-repeat = "entry in entries track by $index">
     <li><img src = "{{entry.photo}}"> 
         <p>{{entry.tag}}</p></li>
   </ul>
 </section>
+
+<div ng-include src="'_newEntry.html'"></div>
