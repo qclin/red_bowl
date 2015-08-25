@@ -58,6 +58,12 @@ angular.module('redbowl', ['ui.router','templates', 'Devise'])
     templateUrl:'/assets/contests/_contest.html', 
     controller: 'contestCtrl'
   })
+  .state('newEntry', {
+    url:'/newEntry', 
+    params: {'contest_id': null}, 
+    templateUrl:'/assets/entries/_newEntry.html', 
+    controller: 'newEntryCtrl'
+  })
   .state('entries.detail', {
     url:'/entries/:entries_id',
     templateUrl:'/assets/entries/_entry.html', 
