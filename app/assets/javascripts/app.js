@@ -1,4 +1,4 @@
-angular.module('redbowl', ['ui.router','templates', 'Devise'])
+angular.module('redbowl', ['ui.router','templates', 'Devise', 'angularFileUpload'])
 
 .config(['$stateProvider','$urlRouterProvider', '$httpProvider', 'AuthProvider', 'AuthInterceptProvider', function($stateProvider, $urlRouterProvider, $httpProvider, AuthProvider, AuthInterceptProvider){
 

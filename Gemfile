@@ -24,8 +24,12 @@ gem 'devise', '~>3.4.0'
 gem 'angular_rails_csrf'
 gem 'faker'
 gem 'figaro'
-gem 'carrierwave'
+# for file uploading from angular -> rails -> aws 
 gem 'fog-aws'
+gem 'fog'
+gem 'carrierwave'
+gem 'angularjs-file-upload-rails', '~> 1.1.6'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

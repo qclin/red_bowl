@@ -3,14 +3,19 @@
     <div class="postModal form">
       <div class="input field">
         <label for="fileSelector">upload photo</label>
-        <input onchange="angular.element(this).scope().uploadFile(this.files)" id="fileSelector" type="file">
+
+        <!-- the js way of uploading files -->
+        <!-- <input onchange="angular.element(this).scope().uploadFile(this.files)" id="fileSelector" type="file"> -->
+
+        <input type="file" nv-file-select uploader="uploader"/><br/>
       </div>
 
       <div class="input field">
         <label for="tag"> tag</label>
         <input id="tag" ng-model="entry.tag" type="text">
       </div>
-
+      
+      <button class ="" type="submit"> submit </button>
     </div>
   </form>
 </div>

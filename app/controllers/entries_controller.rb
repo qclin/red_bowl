@@ -37,7 +37,8 @@ class EntriesController < ApplicationController
   # POST /entries.json
   def create
     @entry = Entry.new(entry_params.merge(user_id: current_user.id))
-
+    @entry.photo = params[:file]
+    
     respond_to do |format|
       if @entry.save
         format.html { redirect_to @entry, notice: 'Entry was successfully created.' }

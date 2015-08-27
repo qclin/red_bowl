@@ -5,4 +5,5 @@
 //= require angular-devise
 //= require angular-ui-router
 //= require angular-rails-templates
+//= require angularjs-file-upload
 //= require_tree .
